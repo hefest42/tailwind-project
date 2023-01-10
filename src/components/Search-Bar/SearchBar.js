@@ -8,7 +8,7 @@ const SearchBar = () => {
     const [displayBookmarks, setDisplayBookmarks] = useState(false);
 
     return (
-        <div className="w-full h-12 bg-orange-400 flex flex-row">
+        <div className="w-full h-[5%] bg-orange-400 flex flex-row">
             <div className="text-dark-yellow px-5 h-full text-sm md:text-lg flex justify-center items-center">
                 <p className="hidden lg:block">RECIPESEARCH</p>
                 <div className="leading-4">
