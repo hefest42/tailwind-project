@@ -4,7 +4,7 @@ import RecipeListItem from "./RecipeListItem";
 
 const RecipeList = () => {
     return (
-        <div className={`hidden md:block w-[35%] lg:w-[30%] h-full bg-medium-champagne overflow-y-scroll`}>
+        <div className={`hidden md:block w-[35%] lg:w-[30%] h-full overflow-y-scroll`}>
             <RecipeListItem />
             <RecipeListItem />
             <RecipeListItem />

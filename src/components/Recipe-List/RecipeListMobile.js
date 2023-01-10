@@ -9,7 +9,7 @@ const RecipeListMobile = () => {
 
     return (
         <div
-            className={`absolute md:hidden top-4 left-0 w-[70%] h-full flex flex-row justify-between items-center bg-medium-champagne transition-transform ${
+            className={`absolute md:hidden top-4 left-0 w-[70%] h-full flex flex-row justify-between items-center transition-transform ${
                 displayRecipeListMobile ? "" : "-translate-x-[100%]"
             }`}
         >
@@ -20,7 +20,7 @@ const RecipeListMobile = () => {
             </div>
 
             <div
-                className={`md:hidden w-10 h-10 bg-lightest-blue rounded-full flex justify-center items-center transition-transform ${
+                className={`md:hidden w-12 h-12 bg-lightest-blue rounded-full flex justify-center items-center transition-transform ${
                     displayRecipeListMobile ? "" : "translate-x-[100%]"
                 } `}
                 onClick={() => setDisplayRecipeMobile((state) => !state)}
