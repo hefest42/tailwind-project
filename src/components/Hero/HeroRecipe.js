@@ -33,7 +33,7 @@ const HeroRecipe = () => {
                 <BsBookmark className="w-8 h-8 md:w-10 md:h-10" />
             </div>
             <div className="w-full flex justify-center items-center ">
-                <ul className="w-full bg-skeleton-dark mt-8 list-none columns-3 md:columns-2 text-xs lg:text-base p-4 rounded-xl">
+                <ul className="w-full bg-skeleton-dark mt-8 list-none columns-3 md:columns-2 text-xs md:text-sm lg:text-base p-4 rounded-xl">
                     {testRecipe.ingredients.map((ing, i) => (
                         <li key={i} className="mb-2 p-1">
                             {ing}
