@@ -32,8 +32,8 @@ const HeroRecipe = () => {
             <div className="w-full flex justify-center mt-6">
                 <BsBookmark className="w-8 h-8 md:w-10 md:h-10" />
             </div>
-            <div className="w-full flex justify-center items-center">
-                <ul className="w-full bg-skeleton-dark mt-8 list-none columns-3 md:columns-2 text-xs md:text-base p-4">
+            <div className="w-full flex justify-center items-center ">
+                <ul className="w-full bg-skeleton-dark mt-8 list-none columns-3 md:columns-2 text-xs lg:text-base p-4 rounded-xl">
                     {testRecipe.ingredients.map((ing, i) => (
                         <li key={i} className="mb-2 p-1">
                             {ing}
@@ -41,14 +41,14 @@ const HeroRecipe = () => {
                     ))}
                 </ul>
             </div>
-            <div className="flex flex-col justify-center items-center text-sm  text-center mt-4">
+            <div className="flex flex-col justify-center items-center text-sm lg:text-base text-center mt-4">
                 <p>To see more detailed description on how to make this recipe, press the button</p>
-                <button className="h-8 px-8 bg-bright-red rounded-md mt-4 hover:bg-dark-red flex justify-center items-center">
+                <button className="h-8 px-8 bg-bright-red rounded-lg mt-4 hover:bg-dark-red flex justify-center items-center">
                     Recipe <RiExternalLinkLine className="ml-2" />
                 </button>
             </div>
 
-            <div className="flex flex-col justify-center items-center text-sm  text-center mt-4">
+            <div className="flex flex-col justify-center items-center text-sm lg:text-base text-center mt-4">
                 <p>For more recipes from PUBLISHER, press the button</p>
                 <button className="h-8 px-8 bg-bright-red rounded-md mt-4 hover:bg-dark-red flex justify-center items-center">
                     Publisher

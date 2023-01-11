@@ -6,7 +6,7 @@ import HeroRecipe from "./Hero/HeroRecipe";
 
 const RecipeContainer = () => {
     return (
-        <div className="relative h-[95%] pt-4 flex justify-between overflow-hidden">
+        <div className="relative h-[95%] pt-4 flex justify-between overflow-scroll md:overflow-hidden">
             <RecipeList />
             <RecipeListMobile />
             <HeroRecipe />
