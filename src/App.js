@@ -4,7 +4,6 @@ import RecipeContainer from "./components/RecipeContainer";
 //TODO change the css for scroll bar
 //TODO add HeroRecipe layout/styling
 //TODO fix/add Bookmarks
-//TODO fix RecipeListItem mobile scaling
 
 function App() {
     return (

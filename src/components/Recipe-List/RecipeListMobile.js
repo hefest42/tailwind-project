@@ -9,7 +9,7 @@ const RecipeListMobile = () => {
 
     return (
         <div
-            className={`absolute md:hidden top-4 left-0 w-[70%] h-full flex flex-row justify-between items-center transition-transform ${
+            className={`absolute md:hidden top-4 left-0 w-[65%] xs:w-[60%] sm:w-[55%] text-sm h-full flex flex-row justify-between items-center transition-transform ${
                 displayRecipeListMobile ? "" : "-translate-x-[100%]"
             }`}
         >
