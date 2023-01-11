@@ -24,6 +24,8 @@ module.exports = {
             "dark-orange": "#bb3e03ff",
             "bright-red": "#ae2012ff",
             "dark-red": "#9b2226ff",
+            "skeleton-dark": "rgb(51 65 85)",
+            "skeleton-light": "rgb(100 116 139)",
         },
     },
     plugins: [],

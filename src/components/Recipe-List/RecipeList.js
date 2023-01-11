@@ -1,6 +1,7 @@
 import React from "react";
 
 import RecipeListItem from "./RecipeListItem";
+import RecipeListItemSkeleton from "./RecipeListItemSkeleton";
 
 const RecipeList = () => {
     return (
@@ -8,16 +9,7 @@ const RecipeList = () => {
             <RecipeListItem />
             <RecipeListItem />
             <RecipeListItem />
-            <RecipeListItem />
-            <RecipeListItem />
-            <RecipeListItem />
-            <RecipeListItem />
-            <RecipeListItem />
-            <RecipeListItem />
-            <RecipeListItem />
-            <RecipeListItem />
-            <RecipeListItem />
-            <RecipeListItem />
+            <RecipeListItemSkeleton />
         </div>
     );
 };

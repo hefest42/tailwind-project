@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import RecipeListItem from "./RecipeListItem";
+import RecipeListItemSkeleton from "./RecipeListItemSkeleton";
 
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
@@ -17,6 +18,7 @@ const RecipeListMobile = () => {
                 <RecipeListItem />
                 <RecipeListItem />
                 <RecipeListItem />
+                <RecipeListItemSkeleton />
             </div>
 
             <div
