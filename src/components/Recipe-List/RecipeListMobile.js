@@ -22,7 +22,7 @@ const RecipeListMobile = () => {
             </div>
 
             <div
-                className={`md:hidden w-12 h-12 bg-lightest-blue rounded-full flex justify-center items-center transition-transform ${
+                className={`md:hidden w-12 h-12 bg-lightest-blue rounded-full flex justify-center items-center transition-transform -translate-y-[230%] ${
                     displayRecipeListMobile ? "" : "translate-x-[100%]"
                 } `}
                 onClick={() => setDisplayRecipeMobile((state) => !state)}
