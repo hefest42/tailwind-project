@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import BookmarkDropdownMenu from "./BookmarkDropdownMenu";
+import BookmarkDropdownMenu from "../Bookmarks/BookmarkDropdownMenu";
 
 import { BsBookmark } from "react-icons/bs";
 
