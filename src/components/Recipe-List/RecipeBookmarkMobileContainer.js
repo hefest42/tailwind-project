@@ -4,20 +4,16 @@ import { useSwipeable } from "react-swipeable";
 import RecipeListMobile from "./RecipeListMobile";
 import BookmarksMobile from "../Bookmarks/BookmarksMobile";
 
-const RecipeBookmarkMobileContainer = () => {
+const RecipeBookmarkMobileContainer = ({ displayRecipeBookmarkMobileContainer }) => {
     const [displaySearchResults, setDisplaySearchResults] = useState(false);
     const [displayBookmarks, setDisplayBookmarks] = useState(false);
 
     const handlers = useSwipeable({
-        onSwipedLeft: () => {
-            setDisplaySearchResults(true);
-            setDisplayBookmarks(false);
-        },
         onSwipedRight: () => {
-            setDisplaySearchResults(false);
-            setDisplayBookmarks(true);
+            setDisplaySearchResults((state) => !state);
+            setDisplayBookmarks((state) => !state);
         },
-        swipeDuration: 500,
+        swipeDuration: 300,
         preventScrollOnSwipe: true,
         trackMouse: true,
     });
@@ -25,7 +21,9 @@ const RecipeBookmarkMobileContainer = () => {
     return (
         <div
             {...handlers}
-            className="md:hidden absolute top-0 left-0 bg-dark-blue w-[60%] h-full mt-4 flex flex-col justify-start items-start overflow-y-scroll"
+            className={`md:hidden absolute top-0 left-0 bg-dark-blue w-[60%] h-full mt-4 flex flex-col justify-start items-start overflow-y-scroll transition-transform ${
+                displayRecipeBookmarkMobileContainer ? "" : "-translate-x-[100%]"
+            } `}
         >
             <div className="flex w-full text-dark-yellow ">
                 <button
