@@ -5,7 +5,7 @@ import RecipeListMobile from "./RecipeListMobile";
 import BookmarksMobile from "../Bookmarks/BookmarksMobile";
 
 const RecipeBookmarkMobileContainer = ({ displayRecipeBookmarkMobileContainer }) => {
-    const [displaySearchResults, setDisplaySearchResults] = useState(false);
+    const [displaySearchResults, setDisplaySearchResults] = useState(true);
     const [displayBookmarks, setDisplayBookmarks] = useState(false);
 
     const handlers = useSwipeable({
@@ -27,7 +27,9 @@ const RecipeBookmarkMobileContainer = ({ displayRecipeBookmarkMobileContainer })
         >
             <div className="flex w-full text-dark-yellow ">
                 <button
-                    className="flex-1 outline-none bg-bright-red h-10"
+                    className={`flex-1 outline-none border-b-2 h-10 ${
+                        displaySearchResults ? "border-dark-yellow" : "border-dark-blue"
+                    }`}
                     onClick={() => {
                         setDisplaySearchResults(true);
                         setDisplayBookmarks(false);
@@ -36,7 +38,9 @@ const RecipeBookmarkMobileContainer = ({ displayRecipeBookmarkMobileContainer })
                     Search Results
                 </button>
                 <button
-                    className="flex-1 outline-none bg-lightest-blue h-10 "
+                    className={`flex-1 outline-none border-b-2 h-10 ${
+                        displayBookmarks ? "border-dark-yellow" : "border-dark-blue"
+                    }`}
                     onClick={() => {
                         setDisplaySearchResults(false);
                         setDisplayBookmarks(true);

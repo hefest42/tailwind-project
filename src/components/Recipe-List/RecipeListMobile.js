@@ -5,7 +5,7 @@ import RecipeListItem from "../Recipe-List/RecipeListItem";
 const RecipeListMobile = ({ displaySearchResults }) => {
     return (
         <div
-            className={`absolute top-0 left-0 bg-dark-orange w-full h-full mt-10 transition-transform ${
+            className={`absolute top-0 left-0 w-full h-full mt-10 transition-transform ${
                 displaySearchResults ? "" : "-translate-x-[100%]"
             }`}
         >

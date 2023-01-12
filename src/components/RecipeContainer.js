@@ -18,7 +18,7 @@ const RecipeContainer = () => {
     });
 
     return (
-        <div {...handlers} className="relative h-[95%] pt-4 flex justify-between overflow-hidden md:overflow-hidden">
+        <div {...handlers} className="relative h-[95%] pt-4 flex justify-between overflow-scroll md:overflow-hidden">
             <RecipeList />
             <RecipeBookmarkMobileContainer
                 displayRecipeBookmarkMobileContainer={displayRecipeBookmarkMobileContainer}
