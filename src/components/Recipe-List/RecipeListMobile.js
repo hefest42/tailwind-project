@@ -1,34 +1,27 @@
-import React, { useState } from "react";
+import React from "react";
 
-import RecipeListItem from "./RecipeListItem";
-import RecipeListItemSkeleton from "./RecipeListItemSkeleton";
+import RecipeListItem from "../Recipe-List/RecipeListItem";
 
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-
-const RecipeListMobile = () => {
-    const [displayRecipeListMobile, setDisplayRecipeMobile] = useState(true);
-
+const RecipeListMobile = ({ displaySearchResults }) => {
     return (
         <div
-            className={`absolute md:hidden  top-4 left-0 w-[70%] xs:w-[60%] sm:w-[55%] h-full flex flex-row text-xs xs:text-sm justify-between items-center transition-transform ${
-                displayRecipeListMobile ? "" : "-translate-x-[100%]"
+            className={`absolute top-0 left-0 bg-dark-orange w-full h-full mt-10 transition-transform ${
+                displaySearchResults ? "" : "-translate-x-[100%]"
             }`}
         >
-            <div className="bg-background-black w-[100%] h-full overflow-y-scroll">
-                <RecipeListItem />
-                <RecipeListItem />
-                <RecipeListItem />
-                <RecipeListItemSkeleton />
-            </div>
-
-            <div
-                className={`md:hidden w-12 h-12 bg-lightest-blue rounded-full flex justify-center items-center transition-transform -translate-y-[230%] ${
-                    displayRecipeListMobile ? "" : "translate-x-[100%]"
-                } `}
-                onClick={() => setDisplayRecipeMobile((state) => !state)}
-            >
-                {displayRecipeListMobile ? <FaArrowLeft /> : <FaArrowRight />}
-            </div>
+            <RecipeListItem />
+            <RecipeListItem />
+            <RecipeListItem />
+            <RecipeListItem />
+            <RecipeListItem />
+            <RecipeListItem />
+            <RecipeListItem />
+            <RecipeListItem />
+            <RecipeListItem />
+            <RecipeListItem />
+            <RecipeListItem />
+            <RecipeListItem />
+            <RecipeListItem />
         </div>
     );
 };

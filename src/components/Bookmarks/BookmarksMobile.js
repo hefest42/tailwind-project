@@ -1,12 +1,12 @@
 import React from "react";
 
-import RecipeListItem from "../Recipe-List/RecipeListItem";
-
-const BookmarksMobile = () => {
+const BookmarksMobile = ({ displayBookmarks }) => {
     return (
-        <div className="absolute top-0 right-0 md:hidden bg-dark-blue w-[40%] h-full mt-4">
-            <RecipeListItem />
-        </div>
+        <div
+            className={`absolute top-0 left-0 bg-dark-yellow w-full h-full mt-10 transition-transform ${
+                displayBookmarks ? "" : "-translate-x-[100%]"
+            } `}
+        ></div>
     );
 };
 
