@@ -30,13 +30,19 @@ const SearchBar = () => {
                 className="relative w-auto px-3 md:px-5 xl:px-10 h-full bg-lime-500"
                 onMouseLeave={() => setDisplayBookmarks(false)}
             >
+                {/* Bookmark button for dropdown */}
                 <div
                     className=" h-full flex justify-center items-center cursor-pointer"
                     onMouseEnter={() => setDisplayBookmarks(true)}
                 >
                     <div className="hidden lg:block mr-4 text-lg text-dark-yellow">BOOKMARKS</div>
-                    <div>
+                    <div className="hidden md:block">
                         <BsBookmark className="text-dark-yellow w-6 h-6 md:w-8 md:h-8" />
+                    </div>
+
+                    {/* Bookmark button for mobile */}
+                    <div className="md:hidden">
+                        <BsBookmark className="text-dark-yellow w-6 h-6" />
                     </div>
                 </div>
                 {displayBookmarks && <BookmarkDropdownMenu displayBookmarks={displayBookmarks} />}

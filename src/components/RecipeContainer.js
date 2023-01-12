@@ -3,6 +3,7 @@ import React from "react";
 import RecipeList from "./Recipe-List/RecipeList";
 import RecipeListMobile from "./Recipe-List/RecipeListMobile";
 import HeroRecipe from "./Hero/HeroRecipe";
+import BookmarksMobile from "./Search-Bar/BookmarksMobile";
 
 const RecipeContainer = () => {
     return (
