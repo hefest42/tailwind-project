@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useSwipeable } from "react-swipeable";
 
-const RecipeBookmarkMobileContainer = ({ displayRecipeBookmarkMobileContainer }) => {
+const MobileSideMenu = ({ displaySideMenu }) => {
     const [displaySearchResults, setDisplaySearchResults] = useState(true);
     const [displayBookmarks, setDisplayBookmarks] = useState(false);
 
@@ -19,7 +19,7 @@ const RecipeBookmarkMobileContainer = ({ displayRecipeBookmarkMobileContainer })
         <div
             {...handlers}
             className={`md:hidden absolute top-0 left-0 bg-dark-blue w-[60%] h-full mt-4 flex flex-col justify-start items-start overflow-y-scroll transition-transform ${
-                displayRecipeBookmarkMobileContainer ? "" : "-translate-x-[100%]"
+                displaySideMenu ? "" : "-translate-x-[100%]"
             } `}
         >
             <div className="flex w-full text-dark-yellow ">
@@ -50,4 +50,4 @@ const RecipeBookmarkMobileContainer = ({ displayRecipeBookmarkMobileContainer })
     );
 };
 
-export default RecipeBookmarkMobileContainer;
+export default MobileSideMenu;
