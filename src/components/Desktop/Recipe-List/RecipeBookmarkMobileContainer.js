@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import { useSwipeable } from "react-swipeable";
 
-import RecipeListMobile from "./RecipeListMobile";
-import BookmarksMobile from "../Bookmarks/BookmarksMobile";
-
 const RecipeBookmarkMobileContainer = ({ displayRecipeBookmarkMobileContainer }) => {
     const [displaySearchResults, setDisplaySearchResults] = useState(true);
     const [displayBookmarks, setDisplayBookmarks] = useState(false);
@@ -49,9 +46,6 @@ const RecipeBookmarkMobileContainer = ({ displayRecipeBookmarkMobileContainer })
                     Bookmarks
                 </button>
             </div>
-
-            <RecipeListMobile displaySearchResults={displaySearchResults} />
-            <BookmarksMobile displayBookmarks={displayBookmarks} />
         </div>
     );
 };
