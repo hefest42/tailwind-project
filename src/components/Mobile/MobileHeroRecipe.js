@@ -23,18 +23,18 @@ const testRecipe = {
 
 const MobileHeroRecipe = () => {
     return (
-        <div className="md:hidden w-full text-dark-yellow">
+        <div className="md:hidden w-full h-full text-dark-yellow">
             <div className="w-full h-40 xs:h-64 rounded-xl">
                 <img className="w-full h-full object-cover rounded-xl" src={testRecipe.image_url} alt="" />
             </div>
 
-            <h1 className="w-full flex justify-center text-xl">{testRecipe.title}</h1>
+            <h1 className="w-full flex justify-center text-3xl">{testRecipe.title}</h1>
 
             <div className="w-full flex justify-center my-4">
                 <BsBookmark className="w-8 h-8" />
             </div>
 
-            <div className="w-full flex justify-center items-center mb-4">
+            <div className="w-full flex justify-center items-center mb-4 text-xs xs:text-base">
                 <ul className="w-full bg-skeleton-dark mb-4 list-none columns-3 p-4 rounded-xl">
                     {testRecipe.ingredients.map((ing, i) => (
                         <li key={i} className="mb-2 p-1">

@@ -17,7 +17,7 @@ const MobileContainer = () => {
     });
 
     return (
-        <div {...handlers} className="relative bg-background-black w-full py-4">
+        <div {...handlers} className="relative h-full bg-background-black w-full py-4">
             <MobileSideMenu displaySideMenu={displaySideMenu} />
             <MobileHeroRecipe />
         </div>
