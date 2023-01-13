@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useSwipeable } from "react-swipeable";
 
 import MobileSideMenu from "./MobileSideMenu";
-import HeroRecipe from "../Desktop/Hero/HeroRecipe";
+import MobileHeroRecipe from "./MobileHeroRecipe";
 
 const MobileContainer = () => {
     const [displaySideMenu, setDisplaySideMenu] = useState(false);
@@ -17,9 +17,9 @@ const MobileContainer = () => {
     });
 
     return (
-        <div {...handlers} className="relative w-full h-full">
+        <div {...handlers} className="relative bg-background-black w-full py-4">
             <MobileSideMenu displaySideMenu={displaySideMenu} />
-            <HeroRecipe />
+            <MobileHeroRecipe />
         </div>
     );
 };

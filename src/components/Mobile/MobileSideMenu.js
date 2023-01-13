@@ -18,7 +18,7 @@ const MobileSideMenu = ({ displaySideMenu }) => {
     return (
         <div
             {...handlers}
-            className={`md:hidden absolute top-0 left-0 bg-dark-blue w-[60%] h-full mt-4 flex flex-col justify-start items-start overflow-y-scroll transition-transform ${
+            className={`md:hidden absolute top-0 left-0 bg-dark-blue w-[60%] h-full flex flex-col justify-start items-start transition-transform ${
                 displaySideMenu ? "" : "-translate-x-[100%]"
             } `}
         >
