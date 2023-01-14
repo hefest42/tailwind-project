@@ -13,7 +13,7 @@ const MobileSearchBar = () => {
             <div className="h-full flex flex-1 px-5">
                 <input type="text" placeholder="Search for Meals..." className="outline-none flex-1 rounded-l-lg" />
 
-                <button className="h-full bg-bright-red rounded-r-lg">SEARCH</button>
+                <button className=" w-16 h-full bg-bright-red rounded-r-lg">SEARCH</button>
             </div>
 
             <div className="relative h-full">
