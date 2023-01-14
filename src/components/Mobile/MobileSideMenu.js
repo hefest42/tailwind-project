@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { useSwipeable } from "react-swipeable";
 
+import RecipeListMobile from "./RecipeListMobile";
+import BookmarksMobile from "./BookmarksMobile";
+
 const MobileSideMenu = ({ displaySideMenu }) => {
     const [displaySearchResults, setDisplaySearchResults] = useState(true);
     const [displayBookmarks, setDisplayBookmarks] = useState(false);
@@ -18,7 +21,7 @@ const MobileSideMenu = ({ displaySideMenu }) => {
     return (
         <div
             {...handlers}
-            className={`md:hidden absolute top-0 left-0 bg-dark-blue w-[60%] h-full flex flex-col justify-start items-start transition-transform ${
+            className={`md:hidden absolute top-0 left-0 bg-dark-blue w-[60%] h-full flex flex-col justify-start items-start overflow-scroll transition-transform ${
                 displaySideMenu ? "" : "-translate-x-[100%]"
             } `}
         >
@@ -45,6 +48,10 @@ const MobileSideMenu = ({ displaySideMenu }) => {
                 >
                     Bookmarks
                 </button>
+            </div>
+            <div className="relative w-full h-full bg-dark-red">
+                <RecipeListMobile displaySearchResults={displaySearchResults} />
+                <BookmarksMobile displayBookmarks={displayBookmarks} />
             </div>
         </div>
     );
