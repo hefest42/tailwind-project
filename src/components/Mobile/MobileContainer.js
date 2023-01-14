@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import { useSwipeable } from "react-swipeable";
 
 import MobileSideMenu from "./MobileSideMenu";
 import MobileHeroRecipe from "./MobileHeroRecipe";
+import HeroRecipeSkeleton from "../Desktop/Hero/HeroRecipeSkeleton";
 
 const MobileContainer = () => {
     const [displaySideMenu, setDisplaySideMenu] = useState(false);
@@ -20,6 +21,7 @@ const MobileContainer = () => {
         <div {...handlers} className="relative h-full bg-background-black w-full py-4">
             <MobileSideMenu displaySideMenu={displaySideMenu} />
             <MobileHeroRecipe />
+            {/* <HeroRecipeSkeleton /> */}
         </div>
     );
 };
