@@ -1,7 +1,14 @@
 import React from "react";
 
+import Bookmark from "./Bookmark";
+
 const BookmarkDropdownMenu = ({}) => {
-    return <div className={`absolute "top-full" left-0 w-[10rem] h-[10rem] z-50 bg-bright-red`}></div>;
+    return (
+        <div className="absolute top-full right-0 z-50 w-[20rem] h-80 bg-dark-blue">
+            <Bookmark />
+            <Bookmark />
+        </div>
+    );
 };
 
 export default BookmarkDropdownMenu;
