@@ -6,12 +6,14 @@ import { BsBookmark } from "react-icons/bs";
 
 const SearchBar = ({ setSearch }) => {
     const [searchTerm, setSearchTerm] = useState("");
-    const [displayBookmarks, setDisplayBookmarks] = useState(true);
+    const [displayBookmarks, setDisplayBookmarks] = useState(false);
 
     const formSubmitHandler = (e) => {
         e.preventDefault();
 
         setSearch(searchTerm);
+
+        setSearchTerm("");
     };
 
     return (
@@ -23,6 +25,7 @@ const SearchBar = ({ setSearch }) => {
                     type="text"
                     placeholder="Search for Meals..."
                     onChange={(e) => setSearchTerm(e.target.value)}
+                    value={searchTerm}
                     className="flex-1 outline-none rounded-l-lg"
                 />
 

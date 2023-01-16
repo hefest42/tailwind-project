@@ -15,8 +15,11 @@ const HeroRecipeSkeleton = () => {
                 <ul className=" list-none columns-2 py-4 px-6 ">
                     {Array(12)
                         .fill("0")
-                        .map((item) => (
-                            <li className="block w-[12rem] lg:w-[16rem] h-4 bg-skeleton-dark animate-pulse mb-4 rounded-md"></li>
+                        .map((item, i) => (
+                            <li
+                                key={i}
+                                className="block w-[12rem] lg:w-[16rem] h-4 bg-skeleton-dark animate-pulse mb-4 rounded-md"
+                            ></li>
                         ))}
                 </ul>
             </div>
