@@ -6,7 +6,7 @@ import MobileSideMenu from "./MobileSideMenu";
 import MobileHeroRecipe from "./MobileHeroRecipe";
 import HeroRecipeSkeleton from "../Desktop/Hero/HeroRecipeSkeleton";
 
-const MobileContainer = () => {
+const MobileContainer = ({ recipes }) => {
     const [displaySideMenu, setDisplaySideMenu] = useState(false);
 
     const handlers = useSwipeable({
@@ -19,7 +19,7 @@ const MobileContainer = () => {
 
     return (
         <div {...handlers} className="relative h-full bg-background-black w-full py-4">
-            <MobileSideMenu displaySideMenu={displaySideMenu} />
+            <MobileSideMenu displaySideMenu={displaySideMenu} recipes={recipes} />
             <MobileHeroRecipe />
             {/* <HeroRecipeSkeleton /> */}
         </div>
