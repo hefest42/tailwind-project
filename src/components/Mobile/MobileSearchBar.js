@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { BsBookmark } from "react-icons/bs";
 
-const MobileSearchBar = () => {
+const MobileSearchBar = ({ setSearch, setDisplaySideMenu }) => {
+    const [searchTerm, setSearchTerm] = useState("");
+
+    const formSubmitHandler = (e) => {
+        e.preventDefault();
+
+        setSearch(searchTerm);
+        setDisplaySideMenu(true);
+        setSearchTerm("");
+    };
+
     return (
         <div className="w-full h-10 text-dark-yellow text-sm flex flex-row justify-between items-center">
             <div className="h-full flex flex-col justify-start items-center">
@@ -10,11 +20,17 @@ const MobileSearchBar = () => {
                 <div>Search</div>
             </div>
 
-            <div className="h-full flex flex-1 px-5">
-                <input type="text" placeholder="Search for Meals..." className="outline-none flex-1 rounded-l-lg" />
+            <form onSubmit={formSubmitHandler} className="h-full flex flex-1 px-5">
+                <input
+                    type="text"
+                    placeholder="Search for Meals..."
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    value={searchTerm}
+                    className="outline-none flex-1 rounded-l-lg"
+                />
 
                 <button className=" w-16 h-full bg-bright-red rounded-r-lg">SEARCH</button>
-            </div>
+            </form>
 
             <div className="relative h-full">
                 <div className="h-full flex justify-end items-center cursor-pointer">
