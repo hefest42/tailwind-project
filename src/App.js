@@ -8,7 +8,8 @@ import MobileSearchBar from "./components/Mobile/MobileSearchBar";
 // seperate hero recipe for desktop & mobile
 function App() {
     const [search, setSearch] = useState("");
-    const [hero, setHero] = useState({});
+    const [heroID, setHeroID] = useState("");
+    const [heroRecipe, setHeroRecipe] = useState({});
     const [recipes, setRecipes] = useState([]);
     const [isRecipeListLoading, setIsRecipeListLoading] = useState(false);
 
@@ -33,6 +34,23 @@ function App() {
         fetchRecipes();
     }, [search]);
 
+    useEffect(() => {
+        if (heroID === "") return;
+
+        const fetchHeroRecipe = async () => {
+            try {
+                const response = await fetch(`https://forkify-api.herokuapp.com/api/get?rId=${heroID}`);
+
+                const data = await response.json();
+
+                console.log(data);
+                setHeroRecipe(data.recipe);
+            } catch (error) {}
+        };
+
+        fetchHeroRecipe();
+    }, [heroID]);
+
     return (
         <>
             <div className="md:hidden w-full h-screen bg-background-black">
@@ -47,8 +65,9 @@ function App() {
                     <SearchBar setSearch={setSearch} />
                     <RecipeContainer
                         recipes={recipes}
-                        hero={hero}
-                        setHero={setHero}
+                        heroID={heroID}
+                        setHeroID={setHeroID}
+                        heroRecipe={heroRecipe}
                         isRecipeListLoading={isRecipeListLoading}
                     />
                 </div>

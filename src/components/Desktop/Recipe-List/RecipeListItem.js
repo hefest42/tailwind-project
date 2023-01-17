@@ -1,9 +1,9 @@
 import React from "react";
 
-const RecipeListItem = ({ recipe, setHero }) => {
+const RecipeListItem = ({ recipe, setHeroID }) => {
     return (
         <div
-            onClick={() => setHero(recipe)}
+            onClick={() => setHeroID(recipe.recipe_id)}
             className="bg-light-blue text-dark-yellow w-full h-22 flex justify-between items-center rounded-md mb-1 cursor-pointer hover:bg-dark-blue"
         >
             <div className="w-[30%] flex justify-center items-center ">
