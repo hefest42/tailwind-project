@@ -5,7 +5,8 @@ import RecipeContainer from "./components/Desktop/RecipeContainer";
 import MobileContainer from "./components/Mobile/MobileContainer";
 import MobileSearchBar from "./components/Mobile/MobileSearchBar";
 
-// seperate hero recipe for desktop & mobile
+// change colors of RecipeListItem
+// Fix Bookmarks
 function App() {
     const [search, setSearch] = useState("");
     const [heroID, setHeroID] = useState("");
@@ -56,7 +57,7 @@ function App() {
     return (
         <>
             <div
-                className={`md:hidden w-full  bg-background-black ${
+                className={`md:hidden w-full bg-background-black ${
                     Object.keys(heroRecipe).length === 0 ? "h-screen overflow-hidden" : ""
                 }`}
             >
