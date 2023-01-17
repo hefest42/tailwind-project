@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 
 import SearchBar from "./components/Desktop/Search-Bar/SearchBar";
-import MobileContainer from "./components/Mobile/MobileContainer";
 import RecipeContainer from "./components/Desktop/RecipeContainer";
+import MobileContainer from "./components/Mobile/MobileContainer";
 import MobileSearchBar from "./components/Mobile/MobileSearchBar";
 
 // seperate hero recipe for desktop & mobile
@@ -43,8 +43,9 @@ function App() {
 
                 const data = await response.json();
 
-                console.log(data);
-                setHeroRecipe(data.recipe);
+                const { recipe } = data;
+
+                setHeroRecipe(recipe);
             } catch (error) {}
         };
 
@@ -65,7 +66,6 @@ function App() {
                     <SearchBar setSearch={setSearch} />
                     <RecipeContainer
                         recipes={recipes}
-                        heroID={heroID}
                         setHeroID={setHeroID}
                         heroRecipe={heroRecipe}
                         isRecipeListLoading={isRecipeListLoading}

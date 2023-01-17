@@ -10,7 +10,7 @@ const HeroRecipe = ({ heroRecipe }) => {
                 <img className="w-full h-full object-cover rounded-xl" src={heroRecipe.image_url} alt="" />
             </div>
 
-            <h1 className="w-full text-4xl flex justify-center">{heroRecipe.title}</h1>
+            <h1 className="w-full text-4xl flex justify-center text-center">{heroRecipe.title}</h1>
 
             <div className="w-full flex justify-center mt-6 ">
                 <BsBookmark className="w-8 h-8 md:w-10 md:h-10 cursor-pointer" />
