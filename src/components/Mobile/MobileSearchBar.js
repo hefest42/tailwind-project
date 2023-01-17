@@ -34,7 +34,7 @@ const MobileSearchBar = ({ setSearch, setDisplaySideMenu }) => {
 
             <div className="relative h-full">
                 <div className="h-full flex justify-end items-center cursor-pointer">
-                    <BsBookmark className="w-auto h-[90%]" />
+                    <BsBookmark className="w-auto h-[90%]" onClick={() => setDisplaySideMenu((state) => !state)} />
                 </div>
             </div>
         </div>

@@ -4,6 +4,8 @@ import { BsBookmark } from "react-icons/bs";
 import { RiExternalLinkLine } from "react-icons/ri";
 
 const HeroRecipe = ({ heroRecipe }) => {
+    console.log(heroRecipe);
+
     return (
         <div className="w-full md:w-[64%] lg:w-[69%] h-full text-dark-yellow overflow-scroll">
             <div className="w-full h-1/4 xs:h-1/3 rounded-xl">
@@ -27,18 +29,22 @@ const HeroRecipe = ({ heroRecipe }) => {
             </div>
 
             <div className="flex flex-col justify-center items-center  text-center mt-4">
-                <p>To see more detailed description on how to make this recipe, press the button</p>
-                <button className="h-10 px-8 bg-bright-red rounded-lg mt-4 hover:bg-dark-red flex justify-center items-center">
-                    Recipe <RiExternalLinkLine className="ml-2" />
-                </button>
+                <p>To see more detailed description on how to make {heroRecipe.title}, press the button</p>
+                <a href={heroRecipe.source_url} target="_blank">
+                    <button className="h-10 px-8 bg-bright-red rounded-lg mt-4 hover:bg-dark-red flex justify-center items-center">
+                        Recipe <RiExternalLinkLine className="ml-2" />
+                    </button>
+                </a>
             </div>
 
             <div className="flex flex-col justify-center items-center text-center mt-4">
-                <p>For more recipes from PUBLISHER, press the button</p>
-                <button className="h-10 px-8 bg-bright-red rounded-md mt-4 hover:bg-dark-red flex justify-center items-center">
-                    Publisher
-                    <RiExternalLinkLine className="ml-2" />
-                </button>
+                <p>For more recipes from {heroRecipe.publisher}, press the button</p>
+                <a href={heroRecipe.publisher_url} target="_blank">
+                    <button className="h-10 px-8 bg-bright-red rounded-md mt-4 hover:bg-dark-red flex justify-center items-center">
+                        Publisher
+                        <RiExternalLinkLine className="ml-2" />
+                    </button>
+                </a>
             </div>
         </div>
     );
