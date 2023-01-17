@@ -30,7 +30,7 @@ const MobileContainer = ({
                 setHeroID={setHeroID}
                 isRecipeListLoading={isRecipeListLoading}
             />
-            {Object.keys(heroRecipe).length === 0 ? <div>test</div> : <MobileHeroRecipe heroRecipe={heroRecipe} />}
+            {Object.keys(heroRecipe).length === 0 ? <div></div> : <MobileHeroRecipe heroRecipe={heroRecipe} />}
             {/* <HeroRecipeSkeleton /> */}
         </div>
     );

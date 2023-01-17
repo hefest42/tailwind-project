@@ -5,7 +5,7 @@ import { RiExternalLinkLine } from "react-icons/ri";
 
 const MobileHeroRecipe = ({ heroRecipe }) => {
     return (
-        <div className="md:hidden w-full h-screen text-dark-yellow">
+        <div className="md:hidden w-full h-screen overflow-scroll text-dark-yellow">
             <div className="w-full h-40 xs:h-64 rounded-xl">
                 <img className="w-full h-full object-cover rounded-xl" src={heroRecipe.image_url} alt="" />
             </div>

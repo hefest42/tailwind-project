@@ -55,8 +55,12 @@ function App() {
 
     return (
         <>
-            <div className="md:hidden w-full bg-background-black">
-                <div className="md:hidden w-full bg-background-black flex flex-col justify-start items-center">
+            <div
+                className={`md:hidden w-full  bg-background-black ${
+                    Object.keys(heroRecipe).length === 0 ? "h-screen overflow-hidden" : ""
+                }`}
+            >
+                <div className={`md:hidden w-full bg-background-black flex flex-col justify-start items-center`}>
                     <MobileSearchBar setSearch={setSearch} setDisplaySideMenu={setDisplaySideMenu} />
                     <MobileContainer
                         recipes={recipes}
