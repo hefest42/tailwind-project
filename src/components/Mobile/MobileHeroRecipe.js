@@ -28,17 +28,21 @@ const MobileHeroRecipe = ({ heroRecipe }) => {
 
             <div className="flex flex-col justify-center items-center text-sm text-center">
                 <p>To see more detailed description on how to make this recipe, press the button</p>
-                <button className="h-8 px-8 bg-bright-red rounded-lg  hover:bg-dark-red flex justify-center items-center mt-4">
-                    Recipe <RiExternalLinkLine className="ml-2" />
-                </button>
+                <a href={heroRecipe.source_url} target="_blank" rel="noopener noreferrer">
+                    <button className="h-8 px-8 bg-bright-red rounded-lg  hover:bg-dark-red flex justify-center items-center mt-4">
+                        Recipe <RiExternalLinkLine className="ml-2" />
+                    </button>
+                </a>
             </div>
 
             <div className="flex flex-col justify-center items-center text-sm text-center mt-4">
                 <p>For more recipes from PUBLISHER, press the button</p>
-                <button className="h-8 px-8 bg-bright-red rounded-md hover:bg-dark-red flex justify-center items-center mt-4">
-                    Publisher
-                    <RiExternalLinkLine className="ml-2" />
-                </button>
+                <a href={heroRecipe.publisher_url} target="_blank" rel="noopener noreferrer">
+                    <button className="h-8 px-8 bg-bright-red rounded-md hover:bg-dark-red flex justify-center items-center mt-4">
+                        Publisher
+                        <RiExternalLinkLine className="ml-2" />
+                    </button>
+                </a>
             </div>
         </div>
     );
