@@ -7,6 +7,8 @@ import MobileSearchBar from "./components/Mobile/MobileSearchBar";
 
 // change colors of RecipeListItem
 // Fix Bookmarks
+// display scroll wheel
+// change styling of scroll wheel
 function App() {
     const [search, setSearch] = useState("");
     const [heroID, setHeroID] = useState("");
