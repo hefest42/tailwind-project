@@ -11,7 +11,7 @@ const RecipeList = ({ recipes, setHero, isRecipeListLoading }) => {
             {isRecipeListLoading ? (
                 <RecipeListItemSkeleton />
             ) : (
-                recipes.map((recipe, i) => <RecipeListItem key={i} rec={recipe} setHero={setHero} />)
+                recipes.map((recipe, i) => <RecipeListItem key={i} recipe={recipe} setHero={setHero} />)
             )}
         </div>
     );

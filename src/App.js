@@ -17,13 +17,14 @@ function App() {
 
         const fetchRecipes = async () => {
             try {
+                setIsRecipeListLoading(true);
+
                 const response = await fetch(`https://forkify-api.herokuapp.com/api/search?q=${search}`);
 
                 const data = await response.json();
 
-                console.log(data);
-
                 setRecipes(data.recipes);
+                setIsRecipeListLoading(false);
             } catch (error) {
                 console.log(error);
             }
@@ -35,10 +36,10 @@ function App() {
     return (
         <>
             <div className="md:hidden w-full h-screen bg-background-black">
-                <div className="md:hidden w-full h-screen bg-background-black flex flex-col justify-start items-center">
+                {/* <div className="md:hidden w-full h-screen bg-background-black flex flex-col justify-start items-center">
                     <MobileSearchBar />
                     <MobileContainer recipes={recipes} />
-                </div>
+                </div> */}
             </div>
 
             <div className="hidden w-full h-screen bg-background-black md:flex flex-col justify-center items-center">
