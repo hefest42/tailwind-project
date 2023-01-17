@@ -1,6 +1,6 @@
 import React from "react";
 
-// "http://forkify-api.herokuapp.com/images/best_pizza_dough_recipe1b20.jpg"
+import { FiTrash2, FiExternalLink } from "react-icons/fi";
 
 const testRecipe = {
     publisher: "101 Cookbooks",
@@ -20,22 +20,32 @@ const testRecipe = {
     title: "Best Pizza Dough Ever",
 };
 
-const RecipeListItem = () => {
+const Bookmark = () => {
     return (
-        <div className="bg-light-blue text-dark-yellow w-full h-22 flex justify-center items-center rounded-md mb-1 cursor-pointer hover:bg-dark-blue">
+        <div className="bg-light-blue text-dark-yellow w-full h-22 flex justify-center items-center rounded-md mt-1 cursor-pointer hover:bg-dark-blue">
             <div className="w-[30%] flex justify-center items-center">
                 <img
-                    className="rounded-full w-14 h-14 sm:w-16 sm:h-16 md:w-18 md:h-18"
+                    className="rounded-full w-14 h-14"
                     src="http://forkify-api.herokuapp.com/images/best_pizza_dough_recipe1b20.jpg"
                     alt=""
                 />
             </div>
-            <div className="flex-1 h-20 flex flex-col justify-center items-center">
+
+            <div className="flex-1 h-20 flex flex-col justify-center text-sm items-center">
                 <div className="mb-3">{testRecipe.title}</div>
                 <div>{testRecipe.publisher}</div>
+            </div>
+
+            <div className="h-full flex flex-col justify-betweet">
+                <div className="w-8 h-[50%] mb-4 flex justify-center items-center">
+                    <FiExternalLink className="w-6 h-6" />
+                </div>
+                <div className="w-8 h-[50%] flex justify-center items-center">
+                    <FiTrash2 className="w-6 h-6" />
+                </div>
             </div>
         </div>
     );
 };
 
-export default RecipeListItem;
+export default Bookmark;
