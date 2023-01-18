@@ -13,6 +13,7 @@ const MobileContainer = ({
     isRecipeListLoading,
     displaySideMenu,
     setDisplaySideMenu,
+    bookmarks,
 }) => {
     const handlers = useSwipeable({
         onSwipedRight: () => setDisplaySideMenu(true),
@@ -29,6 +30,7 @@ const MobileContainer = ({
                 recipes={recipes}
                 setHeroID={setHeroID}
                 isRecipeListLoading={isRecipeListLoading}
+                bookmarks={bookmarks}
             />
             {Object.keys(heroRecipe).length === 0 ? <div></div> : <MobileHeroRecipe heroRecipe={heroRecipe} />}
             {/* <HeroRecipeSkeleton /> */}

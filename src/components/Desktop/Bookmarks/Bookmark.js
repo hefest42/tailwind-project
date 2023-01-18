@@ -20,20 +20,17 @@ const testRecipe = {
     title: "Best Pizza Dough Ever",
 };
 
-const Bookmark = () => {
+const Bookmark = ({ bookmark }) => {
+    console.log(bookmark);
     return (
         <div className="bg-light-blue text-dark-yellow w-full h-22 flex justify-center items-center rounded-md mt-1 cursor-pointer hover:bg-dark-blue">
             <div className="w-[30%] flex justify-center items-center">
-                <img
-                    className="rounded-full w-14 h-14"
-                    src="http://forkify-api.herokuapp.com/images/best_pizza_dough_recipe1b20.jpg"
-                    alt=""
-                />
+                <img className="rounded-full w-14 h-14" src={bookmark.image_url} alt="" />
             </div>
 
             <div className="flex-1 h-20 flex flex-col justify-center text-sm items-center">
-                <div className="mb-3">{testRecipe.title}</div>
-                <div>{testRecipe.publisher}</div>
+                <div className="mb-3">{bookmark.title}</div>
+                <div>{bookmark.publisher}</div>
             </div>
 
             <div className="h-full flex flex-col justify-betweet">

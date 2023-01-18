@@ -4,7 +4,7 @@ import { useSwipeable } from "react-swipeable";
 import RecipeListMobile from "./RecipeListMobile";
 import BookmarksMobile from "./BookmarksMobile";
 
-const MobileSideMenu = ({ displaySideMenu, recipes, setHeroID, isRecipeListLoading }) => {
+const MobileSideMenu = ({ displaySideMenu, recipes, setHeroID, isRecipeListLoading, bookmarks }) => {
     const [displaySearchResults, setDisplaySearchResults] = useState(true);
     const [displayBookmarks, setDisplayBookmarks] = useState(false);
 
@@ -56,7 +56,7 @@ const MobileSideMenu = ({ displaySideMenu, recipes, setHeroID, isRecipeListLoadi
                     setHeroID={setHeroID}
                     isRecipeListLoading={isRecipeListLoading}
                 />
-                <BookmarksMobile displayBookmarks={displayBookmarks} />
+                <BookmarksMobile displayBookmarks={displayBookmarks} bookmarks={bookmarks} />
             </div>
         </div>
     );

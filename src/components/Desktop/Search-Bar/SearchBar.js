@@ -4,7 +4,7 @@ import BookmarkDropdownMenu from "../Bookmarks/BookmarkDropdownMenu";
 
 import { BsBookmark } from "react-icons/bs";
 
-const SearchBar = ({ setSearch }) => {
+const SearchBar = ({ setSearch, bookmarks }) => {
     const [searchTerm, setSearchTerm] = useState("");
     const [displayBookmarks, setDisplayBookmarks] = useState(false);
 
@@ -43,7 +43,7 @@ const SearchBar = ({ setSearch }) => {
                     </div>
                 </div>
 
-                {displayBookmarks && <BookmarkDropdownMenu />}
+                {displayBookmarks && <BookmarkDropdownMenu bookmarks={bookmarks} />}
             </div>
         </div>
     );
