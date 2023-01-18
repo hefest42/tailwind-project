@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 
-import { BsBookmark } from "react-icons/bs";
+import { RxHamburgerMenu } from "react-icons/rx";
+import { AiOutlineClose } from "react-icons/ai";
 
-const MobileSearchBar = ({ setSearch, setDisplaySideMenu }) => {
+const MobileSearchBar = ({ setSearch, displaySideMenu, setDisplaySideMenu }) => {
     const [searchTerm, setSearchTerm] = useState("");
 
     const formSubmitHandler = (e) => {
@@ -34,7 +35,11 @@ const MobileSearchBar = ({ setSearch, setDisplaySideMenu }) => {
 
             <div className="relative h-full">
                 <div className="h-full flex justify-end items-center cursor-pointer">
-                    <BsBookmark className="w-auto h-[90%]" onClick={() => setDisplaySideMenu((state) => !state)} />
+                    {displaySideMenu ? (
+                        <AiOutlineClose className="w-auto h-[90%]" onClick={() => setDisplaySideMenu(false)} />
+                    ) : (
+                        <RxHamburgerMenu className="w-auto h-[90%]" onClick={() => setDisplaySideMenu(true)} />
+                    )}
                 </div>
             </div>
         </div>

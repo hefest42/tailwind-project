@@ -77,7 +77,11 @@ function App() {
                 }`}
             >
                 <div className={`md:hidden w-full bg-background-black flex flex-col justify-start items-center`}>
-                    <MobileSearchBar setSearch={setSearch} setDisplaySideMenu={setDisplaySideMenu} />
+                    <MobileSearchBar
+                        setSearch={setSearch}
+                        displaySideMenu={displaySideMenu}
+                        setDisplaySideMenu={setDisplaySideMenu}
+                    />
                     <MobileContainer
                         recipes={recipes}
                         setHeroID={setHeroID}
