@@ -2,7 +2,7 @@ import React from "react";
 
 import Bookmark from "../Desktop/Bookmarks/Bookmark";
 
-const BookmarksMobile = ({ displayBookmarks, bookmarks }) => {
+const BookmarksMobile = ({ displayBookmarks, bookmarks, setHeroID }) => {
     return (
         <div
             className={`absolute top-0 left-0 w-full h-full transition-transform ${
@@ -10,7 +10,7 @@ const BookmarksMobile = ({ displayBookmarks, bookmarks }) => {
             } `}
         >
             {bookmarks.map((bookmark, i) => (
-                <Bookmark key={i} bookmark={bookmark} />
+                <Bookmark key={i} bookmark={bookmark} setHeroID={setHeroID} />
             ))}
         </div>
     );

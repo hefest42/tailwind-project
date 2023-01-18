@@ -20,9 +20,12 @@ const testRecipe = {
     title: "Best Pizza Dough Ever",
 };
 
-const Bookmark = ({ bookmark }) => {
+const Bookmark = ({ bookmark, setHeroID }) => {
     return (
-        <div className="bg-light-blue text-dark-yellow w-full h-22 flex justify-center items-center rounded-md mt-1 cursor-pointer hover:bg-dark-blue">
+        <div
+            onClick={() => setHeroID(bookmark.recipe_id)}
+            className="bg-skeleton-dark hover:bg-skeleton-light text-dark-yellow w-full h-22 flex justify-center items-center rounded-md mt-1 cursor-pointer"
+        >
             <div className="w-[30%] flex justify-center items-center">
                 <img className="rounded-full w-14 h-14" src={bookmark.image_url} alt="" />
             </div>
@@ -30,15 +33,6 @@ const Bookmark = ({ bookmark }) => {
             <div className="flex-1 h-20 flex flex-col justify-center text-sm items-center">
                 <div className="mb-3">{bookmark.title}</div>
                 <div>{bookmark.publisher}</div>
-            </div>
-
-            <div className="h-full flex flex-col justify-betweet">
-                <div className="w-8 h-[50%] mb-4 flex justify-center items-center">
-                    <FiExternalLink className="w-6 h-6" />
-                </div>
-                <div className="w-8 h-[50%] flex justify-center items-center">
-                    <FiTrash2 className="w-6 h-6" />
-                </div>
             </div>
         </div>
     );

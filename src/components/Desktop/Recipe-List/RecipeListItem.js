@@ -4,7 +4,7 @@ const RecipeListItem = ({ recipe, setHeroID }) => {
     return (
         <div
             onClick={() => setHeroID(recipe.recipe_id)}
-            className="bg-light-blue text-dark-yellow w-full h-22 flex justify-between items-center rounded-md mb-1 cursor-pointer hover:bg-dark-blue"
+            className=" bg-skeleton-dark text-dark-yellow w-full h-22 flex justify-between items-center rounded-md mb-1 cursor-pointer hover:bg-skeleton-light"
         >
             <div className="w-[30%] flex justify-center items-center ">
                 <img className="rounded-full w-14 h-14 sm:w-16 sm:h-16 md:w-18 md:h-18" src={recipe.image_url} alt="" />
