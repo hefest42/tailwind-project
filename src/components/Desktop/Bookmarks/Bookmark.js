@@ -21,7 +21,6 @@ const testRecipe = {
 };
 
 const Bookmark = ({ bookmark }) => {
-    console.log(bookmark);
     return (
         <div className="bg-light-blue text-dark-yellow w-full h-22 flex justify-center items-center rounded-md mt-1 cursor-pointer hover:bg-dark-blue">
             <div className="w-[30%] flex justify-center items-center">

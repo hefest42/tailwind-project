@@ -1,9 +1,11 @@
 import React from "react";
 
-import { BsBookmark } from "react-icons/bs";
+import { BsBookmark, BsBookmarkFill } from "react-icons/bs";
 import { RiExternalLinkLine } from "react-icons/ri";
 
-const MobileHeroRecipe = ({ heroRecipe }) => {
+const MobileHeroRecipe = ({ heroRecipe, addBookmark, bookmarks }) => {
+    console.log(bookmarks);
+
     return (
         <div className="md:hidden w-full h-screen overflow-scroll text-dark-yellow">
             <div className="w-full h-40 xs:h-64 rounded-xl">
@@ -12,8 +14,12 @@ const MobileHeroRecipe = ({ heroRecipe }) => {
 
             <h1 className="w-full flex justify-center text-3xl text-center">{heroRecipe.title}</h1>
 
-            <div className="w-full flex justify-center my-4">
-                <BsBookmark className="w-8 h-8" />
+            <div className="w-full flex justify-center cursor-pointer my-4">
+                {bookmarks.filter((bm) => bm.title === heroRecipe.title).length > 0 ? (
+                    <BsBookmarkFill className="w-8 h-8" onClick={() => addBookmark(heroRecipe)} />
+                ) : (
+                    <BsBookmark className="w-8 h-8" onClick={() => addBookmark(heroRecipe)} />
+                )}
             </div>
 
             <div className="w-full flex justify-center items-center mb-4 text-xs xs:text-base">

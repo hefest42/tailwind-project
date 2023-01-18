@@ -22,6 +22,11 @@ function App() {
         if (bookmarks.filter((bm) => bm.title === bookmark.title).length > 0)
             setBookmarks((state) => state.filter((bm) => bm.title !== bookmark.title));
         else setBookmarks((state) => [...state, bookmark]);
+
+        const addNewBookmark = [...bookmarks, bookmark];
+        const newBookmarks = JSON.stringify(addNewBookmark);
+
+        localStorage.setItem("bookmarks", newBookmarks);
     };
 
     useEffect(() => {
@@ -90,6 +95,7 @@ function App() {
                         displaySideMenu={displaySideMenu}
                         setDisplaySideMenu={setDisplaySideMenu}
                         bookmarks={bookmarks}
+                        addBookmark={addBookmark}
                     />
                 </div>
             </div>
@@ -102,6 +108,7 @@ function App() {
                         setHeroID={setHeroID}
                         heroRecipe={heroRecipe}
                         isRecipeListLoading={isRecipeListLoading}
+                        bookmarks={bookmarks}
                         addBookmark={addBookmark}
                     />
                 </div>
