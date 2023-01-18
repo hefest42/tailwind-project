@@ -6,9 +6,6 @@ import MobileContainer from "./components/Mobile/MobileContainer";
 import MobileSearchBar from "./components/Mobile/MobileSearchBar";
 
 // change colors of RecipeListItem
-// Fix Bookmarks
-// display scroll wheel
-// change styling of scroll wheel
 function App() {
     const [search, setSearch] = useState("");
     const [heroID, setHeroID] = useState("");
@@ -102,7 +99,7 @@ function App() {
 
             <div className="hidden w-full h-screen bg-background-black md:flex flex-col justify-center items-center">
                 <div className="w-full h-screen lg:w-[80%] lg:h-[95%] xl:w-[70%] 2xl:w-[60%] bg-background-black md:flex flex-col items-center">
-                    <SearchBar setSearch={setSearch} bookmarks={bookmarks} />
+                    <SearchBar setSearch={setSearch} setHeroID={setHeroID} bookmarks={bookmarks} />
                     <RecipeContainer
                         recipes={recipes}
                         setHeroID={setHeroID}
