@@ -4,6 +4,7 @@ import { useSwipeable } from "react-swipeable";
 
 import MobileSideMenu from "./MobileSideMenu";
 import MobileHeroRecipe from "./MobileHeroRecipe";
+import HeroGreetingMobile from "./HeroGreetingMobile";
 import HeroRecipeSkeleton from "../Desktop/Hero/HeroRecipeSkeleton";
 
 const MobileContainer = ({
@@ -32,7 +33,11 @@ const MobileContainer = ({
                 isRecipeListLoading={isRecipeListLoading}
                 bookmarks={bookmarks}
             />
-            {Object.keys(heroRecipe).length === 0 ? <div></div> : <MobileHeroRecipe heroRecipe={heroRecipe} />}
+            {Object.keys(heroRecipe).length === 0 ? (
+                <HeroGreetingMobile />
+            ) : (
+                <MobileHeroRecipe heroRecipe={heroRecipe} />
+            )}
             {/* <HeroRecipeSkeleton /> */}
         </div>
     );
