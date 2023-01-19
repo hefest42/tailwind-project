@@ -13,6 +13,7 @@ function App() {
     const [recipes, setRecipes] = useState([]);
     const [isRecipeListLoading, setIsRecipeListLoading] = useState(false);
     const [recipeListError, setRecipeListError] = useState(false);
+    const [heroError, setHeroError] = useState(false);
     const [displaySideMenu, setDisplaySideMenu] = useState(false);
     const [bookmarks, setBookmarks] = useState([]);
 
@@ -45,8 +46,8 @@ function App() {
 
                 setRecipes(data.recipes);
                 setIsRecipeListLoading(false);
+                setRecipeListError(false);
             } catch (error) {
-                console.log(error);
                 setIsRecipeListLoading(false);
                 setRecipeListError(true);
                 setRecipes([]);
@@ -68,7 +69,11 @@ function App() {
                 const { recipe } = data;
 
                 setHeroRecipe(recipe);
-            } catch (error) {}
+            } catch (error) {
+                setHeroError(true);
+                setHeroID("");
+                setHeroRecipe({});
+            }
         };
 
         fetchHeroRecipe();
@@ -116,6 +121,7 @@ function App() {
                         heroRecipe={heroRecipe}
                         isRecipeListLoading={isRecipeListLoading}
                         recipeListError={recipeListError}
+                        heroError={heroError}
                         bookmarks={bookmarks}
                         addBookmark={addBookmark}
                     />

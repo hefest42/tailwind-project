@@ -11,6 +11,7 @@ const RecipeContainer = ({
     heroRecipe,
     isRecipeListLoading,
     recipeListError,
+    heroError,
     bookmarks,
     addBookmark,
 }) => {
@@ -22,6 +23,7 @@ const RecipeContainer = ({
                 isRecipeListLoading={isRecipeListLoading}
                 recipeListError={recipeListError}
             />
+
             {Object.keys(heroRecipe).length === 0 ? (
                 <HeroGreeting />
             ) : (
