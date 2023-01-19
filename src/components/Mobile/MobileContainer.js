@@ -12,6 +12,7 @@ const MobileContainer = ({
     setHeroID,
     heroRecipe,
     isRecipeListLoading,
+    recipeListError,
     displaySideMenu,
     setDisplaySideMenu,
     bookmarks,
@@ -32,6 +33,7 @@ const MobileContainer = ({
                 recipes={recipes}
                 setHeroID={setHeroID}
                 isRecipeListLoading={isRecipeListLoading}
+                recipeListError={recipeListError}
                 bookmarks={bookmarks}
             />
             {Object.keys(heroRecipe).length === 0 ? (
@@ -39,9 +41,11 @@ const MobileContainer = ({
             ) : (
                 <MobileHeroRecipe heroRecipe={heroRecipe} addBookmark={addBookmark} bookmarks={bookmarks} />
             )}
-            {/* <HeroRecipeSkeleton /> */}
         </div>
     );
 };
 
 export default MobileContainer;
+
+// error
+// recipes
