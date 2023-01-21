@@ -7,20 +7,10 @@ import MobileHeroRecipe from "./MobileHeroRecipe";
 import HeroGreetingMobile from "./HeroGreetingMobile";
 import HeroRecipeSkeleton from "../Desktop/Hero/HeroRecipeSkeleton";
 
-const MobileContainer = ({
-    recipes,
-    setHeroID,
-    heroRecipe,
-    isRecipeListLoading,
-    recipeListError,
-    displaySideMenu,
-    setDisplaySideMenu,
-    bookmarks,
-    addBookmark,
-}) => {
+const MobileContainer = () => {
     const handlers = useSwipeable({
-        onSwipedRight: () => setDisplaySideMenu(true),
-        onSwipedLeft: () => setDisplaySideMenu(false),
+        onSwipedRight: () => {},
+        onSwipedLeft: () => {},
         swipeDuration: 300,
         preventScrollOnSwipe: true,
         trackMouse: true,
@@ -28,19 +18,8 @@ const MobileContainer = ({
 
     return (
         <div {...handlers} className="relative bg-background-black w-full pt-4">
-            <MobileSideMenu
-                displaySideMenu={displaySideMenu}
-                recipes={recipes}
-                setHeroID={setHeroID}
-                isRecipeListLoading={isRecipeListLoading}
-                recipeListError={recipeListError}
-                bookmarks={bookmarks}
-            />
-            {Object.keys(heroRecipe).length === 0 ? (
-                <HeroGreetingMobile />
-            ) : (
-                <MobileHeroRecipe heroRecipe={heroRecipe} addBookmark={addBookmark} bookmarks={bookmarks} />
-            )}
+            <MobileSideMenu />
+            {Object.keys({}).length === 0 ? <HeroGreetingMobile /> : <MobileHeroRecipe />}
         </div>
     );
 };

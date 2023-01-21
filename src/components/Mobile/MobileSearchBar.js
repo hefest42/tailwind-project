@@ -3,15 +3,11 @@ import React, { useState } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { AiOutlineClose } from "react-icons/ai";
 
-const MobileSearchBar = ({ setSearch, displaySideMenu, setDisplaySideMenu }) => {
+const MobileSearchBar = () => {
     const [searchTerm, setSearchTerm] = useState("");
 
     const formSubmitHandler = (e) => {
         e.preventDefault();
-
-        setSearch(searchTerm);
-        setDisplaySideMenu(true);
-        setSearchTerm("");
     };
 
     return (
@@ -35,10 +31,10 @@ const MobileSearchBar = ({ setSearch, displaySideMenu, setDisplaySideMenu }) => 
 
             <div className="relative h-full">
                 <div className="h-full flex justify-end items-center cursor-pointer">
-                    {displaySideMenu ? (
-                        <AiOutlineClose className="w-auto h-[90%]" onClick={() => setDisplaySideMenu(false)} />
+                    {true ? (
+                        <AiOutlineClose className="w-auto h-[90%]" onClick={() => {}} />
                     ) : (
-                        <RxHamburgerMenu className="w-auto h-[90%]" onClick={() => setDisplaySideMenu(true)} />
+                        <RxHamburgerMenu className="w-auto h-[90%]" onClick={() => {}} />
                     )}
                 </div>
             </div>

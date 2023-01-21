@@ -4,14 +4,12 @@ import BookmarkDropdownMenu from "../Bookmarks/BookmarkDropdownMenu";
 
 import { BsBookmark } from "react-icons/bs";
 
-const SearchBar = ({ setSearch, setHeroID, bookmarks }) => {
+const SearchBar = () => {
     const [searchTerm, setSearchTerm] = useState("");
     const [displayBookmarks, setDisplayBookmarks] = useState(false);
 
     const formSubmitHandler = (e) => {
         e.preventDefault();
-
-        setSearch(searchTerm);
 
         setSearchTerm("");
     };
@@ -24,7 +22,7 @@ const SearchBar = ({ setSearch, setHeroID, bookmarks }) => {
                 <input
                     type="text"
                     placeholder="Search for Meals..."
-                    onChange={(e) => setSearchTerm(e.target.value)}
+                    onChange={(e) => {}}
                     value={searchTerm}
                     className="flex-1 outline-none rounded-l-lg"
                 />
@@ -43,7 +41,7 @@ const SearchBar = ({ setSearch, setHeroID, bookmarks }) => {
                     </div>
                 </div>
 
-                {displayBookmarks && <BookmarkDropdownMenu bookmarks={bookmarks} setHeroID={setHeroID} />}
+                {displayBookmarks && <BookmarkDropdownMenu />}
             </div>
         </div>
     );
