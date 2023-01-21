@@ -4,7 +4,6 @@ import RecipeList from "./Recipe-List/RecipeList";
 import HeroRecipe from "./Hero/HeroRecipe";
 import HeroGreeting from "./Hero/HeroGreeting";
 import HeroRecipeSkeleton from "./Hero/HeroRecipeSkeleton";
-import { RecipesContext, RecipeProvider } from "../../store/RecipeContext";
 
 const RecipeContainer = ({}) => {
     return (

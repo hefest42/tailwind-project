@@ -1,17 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
 import BookmarkDropdownMenu from "../Bookmarks/BookmarkDropdownMenu";
+import { RecipesContext } from "../../../store/RecipeContext";
 
 import { BsBookmark } from "react-icons/bs";
 
 const SearchBar = () => {
-    const [searchTerm, setSearchTerm] = useState("");
+    const { setSearchTerm } = useContext(RecipesContext);
+    const [searchInputValue, setSearchInputValue] = useState("");
     const [displayBookmarks, setDisplayBookmarks] = useState(false);
 
     const formSubmitHandler = (e) => {
         e.preventDefault();
 
-        setSearchTerm("");
+        setSearchTerm(searchInputValue);
     };
 
     return (
@@ -22,8 +24,8 @@ const SearchBar = () => {
                 <input
                     type="text"
                     placeholder="Search for Meals..."
-                    onChange={(e) => {}}
-                    value={searchTerm}
+                    onChange={(e) => setSearchInputValue(e.target.value)}
+                    value={searchInputValue}
                     className="flex-1 outline-none rounded-l-lg"
                 />
 
