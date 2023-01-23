@@ -14,6 +14,7 @@ const SearchBar = () => {
         e.preventDefault();
 
         setSearchTerm(searchInputValue);
+        setSearchInputValue("");
     };
 
     return (
