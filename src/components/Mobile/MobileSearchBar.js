@@ -1,13 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+
+import { RecipesContext } from "../../store/RecipeContext";
 
 import { RxHamburgerMenu } from "react-icons/rx";
 import { AiOutlineClose } from "react-icons/ai";
 
 const MobileSearchBar = () => {
-    const [searchTerm, setSearchTerm] = useState("");
+    const { setSearchTerm } = useContext(RecipesContext);
+    const [searchInputValue, setSearchInputValue] = useState("");
 
     const formSubmitHandler = (e) => {
         e.preventDefault();
+
+        setSearchTerm(searchInputValue);
+        setSearchInputValue("");
     };
 
     return (
@@ -21,8 +27,8 @@ const MobileSearchBar = () => {
                 <input
                     type="text"
                     placeholder="Search for Meals..."
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    value={searchTerm}
+                    onChange={(e) => setSearchInputValue(e.target.value)}
+                    value={searchInputValue}
                     className="outline-none flex-1 rounded-l-lg"
                 />
 

@@ -1,9 +1,26 @@
-import React, { useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 
 import { RecipesContext } from "../../../store/RecipeContext";
 
 const RecipeListItem = ({ recipe }) => {
-    const { setHeroID } = useContext(RecipesContext);
+    const { setHero } = useContext(RecipesContext);
+    const [heroID, setHeroID] = useState("");
+
+    useEffect(() => {
+        if (heroID === "") return;
+
+        (async () => {
+            try {
+                const response = await fetch(`https://forkify-api.herokuapp.com/api/get?rId=${heroID}`);
+
+                const data = await response.json();
+
+                const { recipe } = data;
+
+                setHero(recipe);
+            } catch (error) {}
+        })();
+    }, [heroID]);
 
     return (
         <div

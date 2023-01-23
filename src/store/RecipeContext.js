@@ -1,16 +1,16 @@
-import React, { useState, createContext, useContext } from "react";
+import React, { useState } from "react";
 
 export const RecipesContext = React.createContext();
 
 export function RecipeProvider({ children }) {
     const [searchTerm, setSearchTerm] = useState("");
-    const [heroID, setHeroID] = useState("");
+    const [hero, setHero] = useState({});
 
     const value = {
         searchTerm,
         setSearchTerm,
-        heroID,
-        setHeroID,
+        hero,
+        setHero,
     };
 
     return <RecipesContext.Provider value={value}>{children}</RecipesContext.Provider>;
