@@ -13,6 +13,8 @@ const SearchBar = () => {
     const formSubmitHandler = (e) => {
         e.preventDefault();
 
+        if (searchInputValue === "") return;
+
         setSearchTerm(searchInputValue);
         setSearchInputValue("");
     };

@@ -10,8 +10,6 @@ const MobileHeroRecipe = ({ hero }) => {
 
     const addAndRemoveBookmakrs = (bookmark) => {
         if (bookmarks.filter((bm) => bm.title === bookmark.title).length > 0) {
-            console.log("HELLO");
-
             const removedBookmark = bookmarks.filter((bm) => bm.recipe_id !== bookmark.recipe_id);
 
             setBookmarks(removedBookmark);
@@ -35,11 +33,11 @@ const MobileHeroRecipe = ({ hero }) => {
 
             <h1 className="w-full flex justify-center text-3xl text-center">{hero.title}</h1>
 
-            <div className="w-full flex justify-center cursor-pointer my-4">
+            <div className="w-full flex justify-center my-4">
                 {bookmarks.filter((bm) => bm.title === hero.title).length > 0 ? (
-                    <BsBookmarkFill className="w-8 h-8" onClick={() => addAndRemoveBookmakrs(hero)} />
+                    <BsBookmarkFill className="w-8 h-8 cursor-pointer" onClick={() => addAndRemoveBookmakrs(hero)} />
                 ) : (
-                    <BsBookmark className="w-8 h-8" onClick={() => addAndRemoveBookmakrs(hero)} />
+                    <BsBookmark className="w-8 h-8 cursor-pointer" onClick={() => addAndRemoveBookmakrs(hero)} />
                 )}
             </div>
 

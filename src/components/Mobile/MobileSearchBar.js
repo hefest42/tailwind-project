@@ -12,7 +12,10 @@ const MobileSearchBar = ({ displaySideMenu, setDisplaySideMenu }) => {
     const formSubmitHandler = (e) => {
         e.preventDefault();
 
+        if (searchInputValue === "") return;
+
         setSearchTerm(searchInputValue);
+        setDisplaySideMenu(true);
         setSearchInputValue("");
     };
 

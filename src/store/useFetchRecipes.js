@@ -8,9 +8,10 @@ export const useFetchRecipes = (search) => {
     useEffect(() => {
         if (search === "") return;
 
+        setIsLoading(true);
+
         (async () => {
             try {
-                setIsLoading(true);
                 setError(false);
 
                 const response = await fetch(`https://forkify-api.herokuapp.com/api/search?q=${search}`);
@@ -21,15 +22,20 @@ export const useFetchRecipes = (search) => {
 
                 if (data.recipes.length === 0) throw new Error();
 
-                console.log("FETCHED");
-
-                setIsLoading(false);
                 setRecipes(data.recipes);
             } catch (error) {
                 setIsLoading(false);
                 setError(true);
             }
         })();
+
+        // for nicer loading
+        const timeout = setTimeout(() => {
+            setIsLoading(false);
+        }, 500);
+
+        // not sure if i need this
+        return () => clearTimeout(timeout);
     }, [search]);
 
     return { recipes, isLoading, error };

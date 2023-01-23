@@ -9,8 +9,6 @@ const HeroRecipe = ({ hero }) => {
 
     const addAndRemoveBookmakrs = (bookmark) => {
         if (bookmarks.filter((bm) => bm.title === bookmark.title).length > 0) {
-            console.log("HELLO");
-
             const removedBookmark = bookmarks.filter((bm) => bm.recipe_id !== bookmark.recipe_id);
 
             setBookmarks(removedBookmark);
