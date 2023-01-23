@@ -1,59 +1,32 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useContext } from "react";
 
 import SearchBar from "./components/Desktop/Search-Bar/SearchBar";
 import RecipeContainer from "./components/Desktop/RecipeContainer";
 import MobileContainer from "./components/Mobile/MobileContainer";
 import MobileSearchBar from "./components/Mobile/MobileSearchBar";
-import { RecipeProvider } from "./store/RecipeContext";
+import { RecipesContext } from "./store/RecipeContext";
+import { useState } from "react";
 
-// change colors of RecipeListItem
 function App() {
-    // const addBookmark = (bookmark) => {
-    //     if (bookmarks.filter((bm) => bm.title === bookmark.title).length > 0)
-    //         setBookmarks((state) => state.filter((bm) => bm.title !== bookmark.title));
-    //     else setBookmarks((state) => [...state, bookmark]);
+    const { hero, setBookmarks } = useContext(RecipesContext);
+    const [displaySideMenu, setDisplaySideMenu] = useState(false);
 
-    //     const addNewBookmark = [...bookmarks, bookmark];
-    //     const newBookmarks = JSON.stringify(addNewBookmark);
+    useEffect(() => {
+        const storedBookmarks = JSON.parse(localStorage.getItem("bookmarks"));
 
-    //     localStorage.setItem("bookmarks", newBookmarks);
-    // };
-
-    //     fetchRecipes();
-    // }, []);
-
-    // useEffect(() => {
-    //     if (heroID === "") return;
-
-    //     const fetchHeroRecipe = async () => {
-    //         try {
-    //             const response = await fetch(`https://forkify-api.herokuapp.com/api/get?rId=${heroID}`);
-
-    //             const data = await response.json();
-
-    //             const { recipe } = data;
-    //         } catch (error) {}
-    //     };
-
-    //     fetchHeroRecipe();
-    // }, []);
-
-    // useEffect(() => {
-    //     const storedBookmarks = JSON.parse(localStorage.getItem("bookmarks"));
-
-    //     setBookmarks(storedBookmarks);
-    // }, []);
+        setBookmarks(storedBookmarks);
+    }, []);
 
     return (
-        <RecipeProvider>
+        <>
             <div
                 className={`md:hidden w-full bg-background-black ${
-                    Object.keys({}).length === 0 ? "h-screen overflow-hidden" : ""
+                    Object.keys(hero).length === 0 ? "h-screen overflow-hidden" : ""
                 }`}
             >
                 <div className={`md:hidden w-full bg-background-black flex flex-col justify-start items-center`}>
-                    <MobileSearchBar />
-                    <MobileContainer />
+                    <MobileSearchBar displaySideMenu={displaySideMenu} setDisplaySideMenu={setDisplaySideMenu} />
+                    <MobileContainer displaySideMenu={displaySideMenu} />
                 </div>
             </div>
 
@@ -63,7 +36,7 @@ function App() {
                     <RecipeContainer />
                 </div>
             </div>
-        </RecipeProvider>
+        </>
     );
 }
 

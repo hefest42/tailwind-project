@@ -7,7 +7,7 @@ import MobileHeroRecipe from "./MobileHeroRecipe";
 import HeroGreetingMobile from "./HeroGreetingMobile";
 import { RecipesContext } from "../../store/RecipeContext";
 
-const MobileContainer = () => {
+const MobileContainer = ({ displaySideMenu }) => {
     const { hero } = useContext(RecipesContext);
 
     const handlers = useSwipeable({
@@ -20,7 +20,7 @@ const MobileContainer = () => {
 
     return (
         <div {...handlers} className="relative bg-background-black w-full pt-4">
-            <MobileSideMenu />
+            <MobileSideMenu displaySideMenu={displaySideMenu} />
             {Object.keys(hero).length === 0 ? <HeroGreetingMobile /> : <MobileHeroRecipe hero={hero} />}
         </div>
     );

@@ -5,7 +5,7 @@ import { RecipesContext } from "../../store/RecipeContext";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { AiOutlineClose } from "react-icons/ai";
 
-const MobileSearchBar = () => {
+const MobileSearchBar = ({ displaySideMenu, setDisplaySideMenu }) => {
     const { setSearchTerm } = useContext(RecipesContext);
     const [searchInputValue, setSearchInputValue] = useState("");
 
@@ -37,10 +37,10 @@ const MobileSearchBar = () => {
 
             <div className="relative h-full">
                 <div className="h-full flex justify-end items-center cursor-pointer">
-                    {true ? (
-                        <AiOutlineClose className="w-auto h-[90%]" onClick={() => {}} />
+                    {displaySideMenu ? (
+                        <AiOutlineClose className="w-auto h-[90%]" onClick={() => setDisplaySideMenu(false)} />
                     ) : (
-                        <RxHamburgerMenu className="w-auto h-[90%]" onClick={() => {}} />
+                        <RxHamburgerMenu className="w-auto h-[90%]" onClick={() => setDisplaySideMenu(true)} />
                     )}
                 </div>
             </div>

@@ -21,6 +21,8 @@ export const useFetchRecipes = (search) => {
 
                 if (data.recipes.length === 0) throw new Error();
 
+                console.log("FETCHED");
+
                 setIsLoading(false);
                 setRecipes(data.recipes);
             } catch (error) {
