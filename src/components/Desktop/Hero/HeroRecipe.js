@@ -5,7 +5,26 @@ import { RiExternalLinkLine } from "react-icons/ri";
 import { RecipesContext } from "../../../store/RecipeContext";
 
 const HeroRecipe = ({ hero }) => {
-    const { bookmarks } = useContext(RecipesContext);
+    const { bookmarks, setBookmarks } = useContext(RecipesContext);
+
+    const addAndRemoveBookmakrs = (bookmark) => {
+        if (bookmarks.filter((bm) => bm.title === bookmark.title).length > 0) {
+            console.log("HELLO");
+
+            const removedBookmark = bookmarks.filter((bm) => bm.recipe_id !== bookmark.recipe_id);
+
+            setBookmarks(removedBookmark);
+            localStorage.setItem("bookmarks", JSON.stringify(removedBookmark));
+
+            return;
+        }
+
+        const newBookmarks = [...bookmarks, bookmark];
+
+        setBookmarks(newBookmarks);
+
+        localStorage.setItem("bookmarks", JSON.stringify(newBookmarks));
+    };
 
     return (
         <div className="w-full md:w-[64%] lg:w-[69%] h-full text-dark-yellow overflow-scroll">
@@ -17,9 +36,15 @@ const HeroRecipe = ({ hero }) => {
 
             <div className="w-full flex justify-center mt-6 ">
                 {bookmarks.filter((bm) => bm.title === hero.title).length > 0 ? (
-                    <BsBookmarkFill className="w-8 h-8 md:w-10 md:h-10 cursor-pointer" />
+                    <BsBookmarkFill
+                        className="w-8 h-8 md:w-10 md:h-10 cursor-pointer"
+                        onClick={() => addAndRemoveBookmakrs(hero)}
+                    />
                 ) : (
-                    <BsBookmark className="w-8 h-8 md:w-10 md:h-10 cursor-pointer" />
+                    <BsBookmark
+                        className="w-8 h-8 md:w-10 md:h-10 cursor-pointer"
+                        onClick={() => addAndRemoveBookmakrs(hero)}
+                    />
                 )}
             </div>
 

@@ -24,13 +24,25 @@ const testRecipe = {
 const Bookmark = ({ bookmark }) => {
     const { setHero } = useContext(RecipesContext);
 
+    const fetchHero = async (id) => {
+        try {
+            const response = await fetch(`https://forkify-api.herokuapp.com/api/get?rId=${id}`);
+
+            const data = await response.json();
+
+            const { recipe } = data;
+
+            setHero(recipe);
+        } catch (error) {}
+    };
+
     return (
         <div
-            onClick={() => {}}
+            onClick={() => fetchHero(bookmark.recipe_id)}
             className="bg-skeleton-dark hover:bg-skeleton-light text-dark-yellow w-full h-22 flex justify-center items-center rounded-md mt-1 cursor-pointer"
         >
             <div className="w-[30%] flex justify-center items-center">
-                <img className="rounded-full w-14 h-14" src={bookmark.image_url} alt="" />
+                <img loading="lazy" className="rounded-full w-14 h-14" src={bookmark.image_url} alt="" />
             </div>
 
             <div className="flex-1 h-20 flex flex-col justify-center text-sm items-center">

@@ -4,27 +4,22 @@ import { RecipesContext } from "../../../store/RecipeContext";
 
 const RecipeListItem = ({ recipe }) => {
     const { setHero } = useContext(RecipesContext);
-    const [heroID, setHeroID] = useState("");
 
-    useEffect(() => {
-        if (heroID === "") return;
+    const fetchHero = async (id) => {
+        try {
+            const response = await fetch(`https://forkify-api.herokuapp.com/api/get?rId=${id}`);
 
-        (async () => {
-            try {
-                const response = await fetch(`https://forkify-api.herokuapp.com/api/get?rId=${heroID}`);
+            const data = await response.json();
 
-                const data = await response.json();
+            const { recipe } = data;
 
-                const { recipe } = data;
-
-                setHero(recipe);
-            } catch (error) {}
-        })();
-    }, [heroID]);
+            setHero(recipe);
+        } catch (error) {}
+    };
 
     return (
         <div
-            onClick={() => setHeroID(recipe.recipe_id)}
+            onClick={() => fetchHero(recipe.recipe_id)}
             className=" bg-skeleton-dark text-dark-yellow w-full h-22 flex justify-between items-center rounded-md mb-1 cursor-pointer hover:bg-skeleton-light"
         >
             <div className="w-[30%] flex justify-center items-center ">

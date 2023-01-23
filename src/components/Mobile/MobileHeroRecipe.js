@@ -1,9 +1,32 @@
-import React from "react";
+import React, { useContext } from "react";
+
+import { RecipesContext } from "../../store/RecipeContext";
 
 import { BsBookmark, BsBookmarkFill } from "react-icons/bs";
 import { RiExternalLinkLine } from "react-icons/ri";
 
 const MobileHeroRecipe = ({ hero }) => {
+    const { bookmarks, setBookmarks } = useContext(RecipesContext);
+
+    const addAndRemoveBookmakrs = (bookmark) => {
+        if (bookmarks.filter((bm) => bm.title === bookmark.title).length > 0) {
+            console.log("HELLO");
+
+            const removedBookmark = bookmarks.filter((bm) => bm.recipe_id !== bookmark.recipe_id);
+
+            setBookmarks(removedBookmark);
+            localStorage.setItem("bookmarks", JSON.stringify(removedBookmark));
+
+            return;
+        }
+
+        const newBookmarks = [...bookmarks, bookmark];
+
+        setBookmarks(newBookmarks);
+
+        localStorage.setItem("bookmarks", JSON.stringify(newBookmarks));
+    };
+
     return (
         <div className="md:hidden w-full h-screen overflow-scroll text-dark-yellow">
             <div className="w-full h-40 xs:h-64 rounded-xl">
@@ -13,11 +36,11 @@ const MobileHeroRecipe = ({ hero }) => {
             <h1 className="w-full flex justify-center text-3xl text-center">{hero.title}</h1>
 
             <div className="w-full flex justify-center cursor-pointer my-4">
-                {/* {bookmarks.filter((bm) => bm.title === hero.title).length > 0 ? (
-                    <BsBookmarkFill className="w-8 h-8" onClick={() => addBookmark(hero)} />
+                {bookmarks.filter((bm) => bm.title === hero.title).length > 0 ? (
+                    <BsBookmarkFill className="w-8 h-8" onClick={() => addAndRemoveBookmakrs(hero)} />
                 ) : (
-                    <BsBookmark className="w-8 h-8" onClick={() => addBookmark(hero)} />
-                )} */}
+                    <BsBookmark className="w-8 h-8" onClick={() => addAndRemoveBookmakrs(hero)} />
+                )}
             </div>
 
             <div className="w-full flex justify-center items-center mb-4 text-xs xs:text-base">
