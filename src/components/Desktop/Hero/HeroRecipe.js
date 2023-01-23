@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import { BsBookmark, BsBookmarkFill } from "react-icons/bs";
 import { RiExternalLinkLine } from "react-icons/ri";
+import { RecipesContext } from "../../../store/RecipeContext";
 
 const HeroRecipe = ({ hero }) => {
+    const { bookmarks } = useContext(RecipesContext);
+
     return (
         <div className="w-full md:w-[64%] lg:w-[69%] h-full text-dark-yellow overflow-scroll">
             <div className="w-full h-1/4 xs:h-1/3 rounded-xl">
@@ -13,17 +16,11 @@ const HeroRecipe = ({ hero }) => {
             <h1 className="w-full text-4xl flex justify-center text-center">{hero.title}</h1>
 
             <div className="w-full flex justify-center mt-6 ">
-                {/* {bookmarks.filter((bm) => bm.title === heroRecipe.title).length > 0 ? (
-                    <BsBookmarkFill
-                        className="w-8 h-8 md:w-10 md:h-10 cursor-pointer"
-                        onClick={() => addBookmark(heroRecipe)}
-                    />
+                {bookmarks.filter((bm) => bm.title === hero.title).length > 0 ? (
+                    <BsBookmarkFill className="w-8 h-8 md:w-10 md:h-10 cursor-pointer" />
                 ) : (
-                    <BsBookmark
-                        className="w-8 h-8 md:w-10 md:h-10 cursor-pointer"
-                        onClick={() => addBookmark(heroRecipe)}
-                    />
-                )} */}
+                    <BsBookmark className="w-8 h-8 md:w-10 md:h-10 cursor-pointer" />
+                )}
             </div>
 
             <div className="w-full flex justify-center items-center ">

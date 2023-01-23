@@ -11,11 +11,7 @@ const RecipeListMobile = ({}) => {
     const { recipes, isLoading, error } = useFetchRecipes(searchTerm);
 
     return (
-        <div
-            className={`absolute top-0 left-0 w-full h-full mt-0 transition-transform ${
-                true ? "" : "-translate-x-[100%]"
-            }`}
-        >
+        <div className={`absolute top-0 left-0 w-full h-full mt-0 transition-transform z-10`}>
             {error && !isLoading && <RecipeListErrorMessage />}
             {!error && isLoading && <RecipeListItemSkeleton />}
             {!error &&

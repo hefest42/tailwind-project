@@ -7,12 +7,12 @@ import MobileHeroRecipe from "./MobileHeroRecipe";
 import HeroGreetingMobile from "./HeroGreetingMobile";
 import { RecipesContext } from "../../store/RecipeContext";
 
-const MobileContainer = ({ displaySideMenu }) => {
+const MobileContainer = ({ displaySideMenu, setDisplaySideMenu }) => {
     const { hero } = useContext(RecipesContext);
 
     const handlers = useSwipeable({
-        onSwipedRight: () => {},
-        onSwipedLeft: () => {},
+        onSwipedRight: () => setDisplaySideMenu(true),
+        onSwipedLeft: () => setDisplaySideMenu(false),
         swipeDuration: 300,
         preventScrollOnSwipe: true,
         trackMouse: true,

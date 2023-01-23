@@ -5,11 +5,11 @@ import RecipeListMobile from "./RecipeListMobile";
 import BookmarksMobile from "./BookmarksMobile";
 
 const MobileSideMenu = ({ displaySideMenu }) => {
-    const [displaySearchResults, setDisplaySearchResults] = useState(true);
+    const [displayBookmarks, setDisplayBookmarks] = useState(false);
 
     const handlers = useSwipeable({
         onSwipedRight: () => {
-            setDisplaySearchResults((state) => !state);
+            setDisplayBookmarks((state) => !state);
         },
         swipeDuration: 300,
         preventScrollOnSwipe: true,
@@ -26,28 +26,24 @@ const MobileSideMenu = ({ displaySideMenu }) => {
             <div className="flex w-full text-dark-yellow ">
                 <button
                     className={`flex-1 outline-none border-b-2 h-10 ${
-                        displaySearchResults ? "border-dark-yellow" : "border-dark-blue"
+                        !displayBookmarks ? "border-dark-yellow" : "border-dark-blue"
                     }`}
-                    onClick={() => {
-                        setDisplaySearchResults(true);
-                    }}
+                    onClick={() => setDisplayBookmarks(false)}
                 >
                     Search Results
                 </button>
                 <button
                     className={`flex-1 outline-none border-b-2 h-10 ${
-                        !displaySearchResults ? "border-dark-yellow" : "border-dark-blue"
+                        displayBookmarks ? "border-dark-yellow" : "border-dark-blue"
                     }`}
-                    onClick={() => {
-                        setDisplaySearchResults(false);
-                    }}
+                    onClick={() => setDisplayBookmarks(true)}
                 >
                     Bookmarks
                 </button>
             </div>
             <div className="relative w-full h-full">
-                {displaySearchResults && <RecipeListMobile />}
-                {!displaySearchResults && <BookmarksMobile />}
+                <RecipeListMobile />
+                {displayBookmarks && <BookmarksMobile displayBookmarks={displayBookmarks} />}
             </div>
         </div>
     );

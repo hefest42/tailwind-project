@@ -26,7 +26,7 @@ function App() {
             >
                 <div className={`md:hidden w-full bg-background-black flex flex-col justify-start items-center`}>
                     <MobileSearchBar displaySideMenu={displaySideMenu} setDisplaySideMenu={setDisplaySideMenu} />
-                    <MobileContainer displaySideMenu={displaySideMenu} />
+                    <MobileContainer displaySideMenu={displaySideMenu} setDisplaySideMenu={setDisplaySideMenu} />
                 </div>
             </div>
 
