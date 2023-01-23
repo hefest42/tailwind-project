@@ -20,7 +20,7 @@ const MobileSideMenu = ({ displaySideMenu }) => {
         <div
             {...handlers}
             className={`md:hidden absolute top-0 left-0  bg-background-black w-[75%] xs:w-[55%] h-screen overflow-scroll mt-4 flex flex-col justify-start items-start transition-transform ${
-                displaySideMenu ? "" : "-translate-x-[100%]"
+                displaySideMenu ? "" : "-translate-x-[105%]"
             } `}
         >
             <div className="flex w-full text-dark-yellow ">
