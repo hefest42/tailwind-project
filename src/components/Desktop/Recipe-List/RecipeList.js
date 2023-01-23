@@ -1,4 +1,4 @@
-import React, { useContext, useMemo } from "react";
+import React, { useContext } from "react";
 
 import RecipeListItem from "./RecipeListItem";
 import RecipeListItemSkeleton from "./RecipeListItemSkeleton";
@@ -17,7 +17,7 @@ const RecipeList = ({}) => {
             {!error &&
                 !isLoading &&
                 recipes.length > 0 &&
-                recipes.map((recipe, i) => <RecipeListItem key={i} recipe={recipe} />)}
+                recipes.map((recipe, i) => <RecipeListItem key={recipe.recipe_id} recipe={recipe} />)}
         </div>
     );
 };
