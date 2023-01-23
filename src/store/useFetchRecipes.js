@@ -15,11 +15,11 @@ export const useFetchRecipes = (search) => {
 
                 const response = await fetch(`https://forkify-api.herokuapp.com/api/search?q=${search}`);
 
+                if (!response.ok) throw new Error();
+
                 const data = await response.json();
 
-                if (data.recipes.length === 0) {
-                    throw new Error();
-                }
+                if (data.recipes.length === 0) throw new Error();
 
                 setIsLoading(false);
                 setRecipes(data.recipes);

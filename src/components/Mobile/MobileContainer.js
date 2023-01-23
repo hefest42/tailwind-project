@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 
 import { useSwipeable } from "react-swipeable";
 
 import MobileSideMenu from "./MobileSideMenu";
 import MobileHeroRecipe from "./MobileHeroRecipe";
 import HeroGreetingMobile from "./HeroGreetingMobile";
-import HeroRecipeSkeleton from "../Desktop/Hero/HeroRecipeSkeleton";
+import { RecipesContext } from "../../store/RecipeContext";
 
 const MobileContainer = () => {
+    const { hero } = useContext(RecipesContext);
+
     const handlers = useSwipeable({
         onSwipedRight: () => {},
         onSwipedLeft: () => {},
@@ -19,7 +21,7 @@ const MobileContainer = () => {
     return (
         <div {...handlers} className="relative bg-background-black w-full pt-4">
             <MobileSideMenu />
-            {Object.keys({}).length === 0 ? <HeroGreetingMobile /> : <MobileHeroRecipe />}
+            {Object.keys(hero).length === 0 ? <HeroGreetingMobile /> : <MobileHeroRecipe hero={hero} />}
         </div>
     );
 };
