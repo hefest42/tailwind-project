@@ -1,23 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 
 import { useSwipeable } from "react-swipeable";
 
 import MobileSideMenu from "./MobileSideMenu";
 import MobileHeroRecipe from "./MobileHeroRecipe";
 import HeroGreetingMobile from "./HeroGreetingMobile";
-import HeroRecipeSkeleton from "../Desktop/Hero/HeroRecipeSkeleton";
+import { RecipesContext } from "../../store/RecipeContext";
 
-const MobileContainer = ({
-    recipes,
-    setHeroID,
-    heroRecipe,
-    isRecipeListLoading,
-    recipeListError,
-    displaySideMenu,
-    setDisplaySideMenu,
-    bookmarks,
-    addBookmark,
-}) => {
+const MobileContainer = ({ displaySideMenu, setDisplaySideMenu }) => {
+    const { hero } = useContext(RecipesContext);
+
     const handlers = useSwipeable({
         onSwipedRight: () => setDisplaySideMenu(true),
         onSwipedLeft: () => setDisplaySideMenu(false),
@@ -28,19 +20,8 @@ const MobileContainer = ({
 
     return (
         <div {...handlers} className="relative bg-background-black w-full pt-4">
-            <MobileSideMenu
-                displaySideMenu={displaySideMenu}
-                recipes={recipes}
-                setHeroID={setHeroID}
-                isRecipeListLoading={isRecipeListLoading}
-                recipeListError={recipeListError}
-                bookmarks={bookmarks}
-            />
-            {Object.keys(heroRecipe).length === 0 ? (
-                <HeroGreetingMobile />
-            ) : (
-                <MobileHeroRecipe heroRecipe={heroRecipe} addBookmark={addBookmark} bookmarks={bookmarks} />
-            )}
+            <MobileSideMenu displaySideMenu={displaySideMenu} />
+            {Object.keys(hero).length === 0 ? <HeroGreetingMobile /> : <MobileHeroRecipe hero={hero} />}
         </div>
     );
 };
